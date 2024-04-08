@@ -1,3 +1,6 @@
+// Connor Leyden and Jay Chadwick
+// Due 04122024 FRI
+// Purpose: Singer subclass of Musician class
 public class Singer extends Musician {
     private boolean isKidnapped;
     private boolean isIncarcerated;

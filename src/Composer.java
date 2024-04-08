@@ -1,3 +1,6 @@
+// Connor Leyden and Jay Chadwick
+// Due 04122024 FRI
+// Purpose: Composer subclass of Musician class
 public class Composer extends Musician {
     private boolean isLockedInHouse;
 

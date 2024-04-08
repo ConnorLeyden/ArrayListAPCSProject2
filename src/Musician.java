@@ -1,5 +1,7 @@
+// Connor Leyden and Jay Chadwick
+// Due 04122024 FRI
+// Purpose: Musician superclass
 import java.util.ArrayList;
-
 public class Musician {
     private String name;
     private String instrument;
