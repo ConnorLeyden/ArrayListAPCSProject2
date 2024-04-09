@@ -12,6 +12,10 @@ public class Musician {
         this.instrument = instrument;
     }
 
+    public Musician(String name) {
+        this.name = name;
+    }
+
     public void getOnBus() {
         System.out.println(name + " gets on the bus with their " + instrument + ".");
     }

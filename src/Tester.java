@@ -13,6 +13,8 @@ public class Tester {
         departure();
     }
 
+
+
     public static void decideContestants() {
         // Instantiating musicians with polymorphism.
         Musician yoYoMa = new Player("Yo-Yo Ma", "Cello", true);

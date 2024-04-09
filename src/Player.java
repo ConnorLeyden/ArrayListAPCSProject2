@@ -1,3 +1,8 @@
+// Connor Leyden and Jay Chadwick
+// Due 04122024 FRI
+// Purpose: Player subclass
+
+import java.util.ArrayList;
 public class Player extends Musician {
     private boolean canPlayFurElise;
 

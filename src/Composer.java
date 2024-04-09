@@ -1,13 +1,16 @@
 // Connor Leyden and Jay Chadwick
 // Due 04122024 FRI
 // Purpose: Composer subclass of Musician class
+
+import java.util.ArrayList;
 public class Composer extends Musician {
     private boolean isLockedInHouse;
 
     public Composer(String name, boolean isLockedInHouse) {
-        super(name, "composition");
+        super(name);
         this.isLockedInHouse = isLockedInHouse;
     }
+
 
     @Override
     public void reactToEmergency() {

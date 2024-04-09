@@ -1,6 +1,8 @@
 // Connor Leyden and Jay Chadwick
 // Due 04122024 FRI
 // Purpose: Band subclass of Musician class
+
+import java.util.ArrayList;
 public class Band extends Musician {
     private boolean isInAlliance;
 
