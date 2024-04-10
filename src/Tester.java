@@ -68,7 +68,10 @@ public class Tester {
         ArrayList<Musician> bandNeighbourhood = new ArrayList<>();
         Musician theBeatles = new Band("The Beatles", true, "Here Comes the Sun");
         Musician u2 = new Band("U2", true, "With Or Without You");
-
+        Musician rollingStones = new Band("Rolling Stones", true, "(I Can't Get No) Satisfaction");
+        bandNeighbourhood.add(theBeatles);
+        bandNeighbourhood.add(u2);
+        bandNeighbourhood.add(rollingStones);
 
 
         for (int i = 0; i < bandNeighbourhood.size(); i++) {
@@ -100,10 +103,11 @@ public class Tester {
         Musician bobMarley = new Singer("Bob Marley", true, false, "Could You Be Loved");
         Musician adele = new Singer("Adele", true, false, "Hello");
         Musician michaelJackson = new Singer("Adele", false, true, "Don’t Stop ’til You Get Enough");
-        singerNeighbourhood.add(mrHansen);
-        singerNeighbourhood.add(stevenXu);
-        singerNeighbourhood.add(yoYoMa);
-        singerNeighbourhood.add(louisArmstrong);
+        singerNeighbourhood.add(taylorSwift);
+        singerNeighbourhood.add(elvisPresley);
+        singerNeighbourhood.add(bobMarley);
+        singerNeighbourhood.add(adele);
+        singerNeighbourhood.add(michaelJackson);
 
         for (int i = 0; i < singerNeighbourhood.size(); i++) {
             singerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
@@ -129,7 +133,9 @@ public class Tester {
         ArrayList<Musician> composerNeighbourhood = new ArrayList<>();
         Musician mozart = new Composer("Mozart", false, "Jupiter Symphony");
         Musician beethoven = new Composer("Beethoven", false, "Fifth Symphony");
-
+        Musician brahms = new Composer("Johannes Brahms", true, "Third Symphony");
+        Musician hansZimmer = new Composer("Hans Zimmer", true, "Dune Soundtrack");
+        Musician bach = new Composer("Bach", true, "Mass in B minor");
         for (int i = 0; i < composerNeighbourhood.size(); i++) {
             composerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
         }
