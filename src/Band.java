@@ -5,12 +5,27 @@
 import java.util.ArrayList;
 public class Band extends Musician {
     private boolean isInAlliance;
+    private String bestSong;
 
-    public Band(String name, boolean isInAlliance) {
+    public Band(String name, boolean isInAlliance, String bestSong) {
         super(name, "band");
         this.isInAlliance = isInAlliance;
+        this.bestSong = bestSong;
     }
 
+    @Override
+    public void chooseNeighbourhoodCompetitor() {
+        System.out.println(this);
+        if (this.isInAlliance) {
+            System.out.println("I have entered into an alliance to crush the rolling stones for good!");
+        } else {
+            System.out.println("This is an outrage! I am being teamed up on and blocked from getting on the bus!");
+        }
+    }
+
+    public boolean getStatus() {
+        return this.isInAlliance;
+    }
     @Override
     public void reactToEmergency() {
         if (isInAlliance) {
@@ -32,5 +47,10 @@ public class Band extends Musician {
     @Override
     public void vote(ArrayList<Musician> musicians) {
         // Implementation of vote method for Band
+    }
+
+    @Override
+    public String toString() {
+        return "My name is " + getName() + " and my most popular song is " + this.bestSong + ".";
     }
 }

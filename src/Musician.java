@@ -15,6 +15,9 @@ public class Musician {
     public Musician(String name) {
         this.name = name;
     }
+    public void chooseNeighbourhoodCompetitor() {
+
+    }
 
     public void getOnBus() {
         System.out.println(name + " gets on the bus with their " + instrument + ".");

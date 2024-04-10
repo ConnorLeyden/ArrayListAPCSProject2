@@ -30,39 +30,122 @@ public class Tester {
     }
 
     public static void decideContestantsPlayer() {
-
+        System.out.println("First, the player neighbourhood must decide its two top contestants");
+        System.out.println("Here is each musician to introduce themselves and decide the best way to choose the top contestants:");
+        ArrayList<Musician> playerNeighbourhood = new ArrayList<>();
         Musician mrHansen = new Player("Mr. Hansen", "Piano", false);
+        Musician stevenXu = new Player("Steven Xu", "Saxophone", false);
         // Instantiating musicians with polymorphism.
         Musician yoYoMa = new Player("Yo-Yo Ma", "Cello", true);
         Musician louisArmstrong = new Player("Louis Armstrong", "Trumpet", true);
-        Musician mozart = new Composer("Mozart", false);
-        Musician beethoven = new Composer("Beethoven", false);
-        Musician taylorSwift = new Singer("Taylor Swift", false, false);
-        Musician elvisPresley = new Singer("Elvis Presley", false, false);
-        Musician theBeatles = new Band("The Beatles", true);
-        Musician u2 = new Band("U2", true);
+        playerNeighbourhood.add(mrHansen);
+        playerNeighbourhood.add(stevenXu);
+        playerNeighbourhood.add(yoYoMa);
+        playerNeighbourhood.add(louisArmstrong);
 
-        // Add the selected musicians to the bus.
-        bus.add(yoYoMa);
-        bus.add(louisArmstrong);
-        bus.add(mozart);
-        bus.add(beethoven);
-        bus.add(taylorSwift);
-        bus.add(elvisPresley);
-        bus.add(theBeatles);
-        bus.add(u2);
+        for (int i = 0; i < playerNeighbourhood.size(); i++) {
+            playerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
+        }
 
-        System.out.println("Contestants from each neighborhood have been decided and added to the bus.");
+        for (int i = 0; i < playerNeighbourhood.size(); i++) {
+            Musician musician = playerNeighbourhood.get(i);
+            if (musician instanceof Player) {
+                Player temp = (Player) musician; // Safe to cast now
+                if (temp.getCanPlayFurElise()) {
+                    bus.add(musician);
+                    System.out.println(musician.getName() + " has made it onto the bus!");
+                } else {
+                    System.out.println(musician.getName() + " didn't make it onto the bus.");
+                }
+            }
+        }
     }
 
     public static void decideContestantsBand() {
+        System.out.println("Next, the band neighbourhood must decide its two top contestants");
+        System.out.println("Here is each musician to introduce themselves and decide the best way to choose the top contestants:");
+        System.out.println("But wait... It's all out WAR in the band region");
+        ArrayList<Musician> bandNeighbourhood = new ArrayList<>();
+        Musician theBeatles = new Band("The Beatles", true, "Here Comes the Sun");
+        Musician u2 = new Band("U2", true, "With Or Without You");
+
+
+
+        for (int i = 0; i < bandNeighbourhood.size(); i++) {
+            bandNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
+        }
+
+        for (int i = 0; i < bandNeighbourhood.size(); i++) {
+            Musician musician = bandNeighbourhood.get(i);
+            if (musician instanceof Band) {
+                Band temp = (Band) musician; // Safe to cast now
+                if (temp.getStatus()) {
+                    bus.add(musician);
+                    System.out.println(musician.getName() + " has made it onto the bus!");
+                } else {
+                    System.out.println(musician.getName() + " didn't make it onto the bus.");
+                }
+            }
+        }
+
 
     }
     public static void decideContestantsSinger() {
+        System.out.println("Next, the singer neighbourhood must decide its two top contestants");
+        System.out.println("Here is each musician to introduce themselves and decide the best way to choose the top contestants:");
 
+        ArrayList<Musician> singerNeighbourhood = new ArrayList<>();
+        Musician taylorSwift = new Singer("Taylor Swift", false, false, "Shake it Off");
+        Musician elvisPresley = new Singer("Elvis Presley", false, false, "Can't Help Falling In Love");
+        Musician bobMarley = new Singer("Bob Marley", true, false, "Could You Be Loved");
+        Musician adele = new Singer("Adele", true, false, "Hello");
+        Musician michaelJackson = new Singer("Adele", false, true, "Don’t Stop ’til You Get Enough");
+        singerNeighbourhood.add(mrHansen);
+        singerNeighbourhood.add(stevenXu);
+        singerNeighbourhood.add(yoYoMa);
+        singerNeighbourhood.add(louisArmstrong);
+
+        for (int i = 0; i < singerNeighbourhood.size(); i++) {
+            singerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
+        }
+
+        for (int i = 0; i < singerNeighbourhood.size(); i++) {
+            Musician musician = singerNeighbourhood.get(i);
+            if (musician instanceof Singer) {
+                Singer temp = (Singer) musician; // Safe to cast now
+                if (temp.getStatus()) {
+                    bus.add(musician);
+                    System.out.println(musician.getName() + " has made it onto the bus!");
+                } else {
+                    System.out.println(musician.getName() + " didn't make it onto the bus.");
+                }
+            }
+        }
     }
 
     public static void decideContestantsComposer() {
+        System.out.println("Next, the Composer neighbourhood must decide its two top contestants");
+        System.out.println("Here is each musician to introduce themselves and decide the best way to choose the top contestants:");
+        ArrayList<Musician> composerNeighbourhood = new ArrayList<>();
+        Musician mozart = new Composer("Mozart", false, "Jupiter Symphony");
+        Musician beethoven = new Composer("Beethoven", false, "Fifth Symphony");
+
+        for (int i = 0; i < composerNeighbourhood.size(); i++) {
+            composerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
+        }
+
+        for (int i = 0; i < composerNeighbourhood.size(); i++) {
+            Musician musician = composerNeighbourhood.get(i);
+            if (musician instanceof Composer) {
+                Composer temp = (Composer) musician; // Safe to cast now
+                if (!temp.getLockedStatus()) {
+                    bus.add(musician);
+                    System.out.println(musician.getName() + " has made it onto the bus!");
+                } else {
+                    System.out.println(musician.getName() + " didn't make it onto the bus.");
+                }
+            }
+        }
 
     }
 
