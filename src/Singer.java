@@ -62,4 +62,11 @@ public class Singer extends Musician {
     public String toString() {
         return "My name is " + getName() + " and my most popular song is " + this.bestSong + ".";
     }
+
+    @Override
+
+    public void exitBus() {
+        super.exitBus();
+//        Require implementation of specific exitBus() Methods
+    }
 }

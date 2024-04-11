@@ -51,4 +51,11 @@ public class Player extends Musician {
         System.out.println("AAAAAAAAAAAAAAAAAAAA!!!!!!!!");
         System.out.println("I can't even drive, what do I do!");
     }
+
+    @Override
+
+    public void exitBus() {
+        super.exitBus();
+//        Require implementation of specific exitBus() Methods
+    }
 }

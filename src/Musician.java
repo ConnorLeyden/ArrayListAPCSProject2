@@ -22,7 +22,7 @@ public class Musician {
     }
 
     public void exitBus() {
-        System.out.println(name + " exits the bus.");
+        System.out.println(name + " is exiting the bus.");
         this.isOffBus = true;
     }
 

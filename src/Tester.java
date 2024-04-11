@@ -176,14 +176,14 @@ public class Tester {
         System.out.println("it turns out the bus is now in the middle of a Formula 1 race course!");
         System.out.println();
 
-        System.out.println("In the front, Steven starts screaming");
+        System.out.println("In the front, the wild driver starts screaming");
         if (bus.get(0) instanceof Player) {
             Player temp = (Player) bus.get(0);
             temp.yellForHelp();
         }
             System.out.println();
 
-        System.out.println("Somehow, Steven navigates the bus to the side of the road, but the sharp turns have caused disarray among the musicians, who find themsleves in completely different seats from before");
+        System.out.println("Somehow, the wild driver navigates the bus to the side of the road, but the sharp turns have caused disarray among the musicians, who find themsleves in completely different seats from before");
         Collections.shuffle(bus);
         System.out.println("The new seating arrangement is: \n");
         printTheBus();
@@ -199,8 +199,32 @@ public class Tester {
         System.out.println("The musicians vote, leading to some being voted off the bus.");
     }
 
+    public static Musician determineWinner() {
+        int randomInt = (int) (Math.random() * bus.size());
+        return bus.get(randomInt);
+    }
     public static void departure() {
         // Describe the final scene where the remaining musicians find themselves at the wrong location.
-        System.out.println("At the tournament grounds, a surprise twist leaves only Steven as the contestant.");
+        System.out.println("As the contestants reach the tournament grounds, each musician steps off with a few remarks.");
+        for (int i = 0; i < bus.size(); i++) {
+            bus.get(i).exitBus();
+        }
+
+        System.out.println("Suddenly, the bus turns the other direction and runs off.");
+        System.out.println("The musicians start running and shouting after it.");
+
+        for (int i = 1; i < bus.size(); i++) {
+            System.out.println(bus.get(i).toString() + " I command you to return here now or face the wrath of my music!");
+            bus.remove(i);
+            i--;
+        }
+
+        System.out.println("After a while, the wild driver arrived and reveals himself as Steven Xu, the saxophone player!");
+        System.out.println("As he is the only one, a short vote commences");
+        System.out.println("AND the WINNER is...");
+        System.out.println(determineWinner().getName());
+        System.out.println("Steven celebrated by playing Fur Elise poorly.\n");
+        System.out.println("That is how a little known musician finally won the great music festival!");
+
     }
 }

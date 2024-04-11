@@ -59,4 +59,11 @@ public class Composer extends Musician {
     public void vote(ArrayList<Musician> musicians) {
         // Implementation of vote method for Composer
     }
+
+    @Override
+
+    public void exitBus() {
+        super.exitBus();
+//        Require implementation of specific exitBus() Methods
+    }
 }
