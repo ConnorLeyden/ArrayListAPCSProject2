@@ -67,6 +67,6 @@ public class Singer extends Musician {
 
     public void exitBus() {
         super.exitBus();
-//        Require implementation of specific exitBus() Methods
+        System.out.println("The " + getName() + " fans will conquer all!");
     }
 }

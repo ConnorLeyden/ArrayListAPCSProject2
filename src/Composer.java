@@ -64,6 +64,6 @@ public class Composer extends Musician {
 
     public void exitBus() {
         super.exitBus();
-//        Require implementation of specific exitBus() Methods
+        System.out.println("I " + getName() + " will compose the greatest symphony known to man and win the tournament!");
     }
 }

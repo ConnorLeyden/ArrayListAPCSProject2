@@ -58,6 +58,6 @@ public class Band extends Musician {
 
     public void exitBus() {
         super.exitBus();
-//        Require implementation of specific exitBus() Methods
+        System.out.println("The " + getName() + "will rally the old support to victory!");
     }
 }

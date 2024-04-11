@@ -56,6 +56,6 @@ public class Player extends Musician {
 
     public void exitBus() {
         super.exitBus();
-//        Require implementation of specific exitBus() Methods
+        System.out.println("I " + getName() + " am the best " + getInstrument() + "player and will win the competition");
     }
 }
