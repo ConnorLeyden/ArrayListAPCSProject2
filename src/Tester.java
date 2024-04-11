@@ -62,6 +62,13 @@ public class Tester {
         }
     }
 
+
+
+//    IMPORTANT IMPORTANT ==================
+//    Must VERIFY Names using .Equals
+//    IMPORTANT IMPORTANT ==================
+
+
     public static void decideContestantsBand() {
         System.out.println("Next, the band neighbourhood must decide its two top contestants");
         System.out.println("Here is each musician to introduce themselves and decide the best way to choose the top contestants:");
