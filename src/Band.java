@@ -29,7 +29,7 @@ public class Band extends Musician {
     @Override
     public void reactToEmergency() {
         if (isInAlliance) {
-            System.out.println(getName() + " collaborates with their allies to create a rhythmic response to the emergency.");
+            System.out.println("As the " + getName() + ", I need to make sure all my fellow band members are alright.");
         } else {
             System.out.println(getName() + " is on their own, trying to figure out a solo act.");
         }

@@ -3,6 +3,7 @@
 // Purpose: Tester class to execute narrative program
 
 import java.util.ArrayList;
+import java.util.Collections;
 public class Tester {
     static ArrayList<Musician> bus = new ArrayList<>();
     public static void main(String[] args) {
@@ -50,7 +51,7 @@ public class Tester {
         for (int i = 0; i < playerNeighbourhood.size(); i++) {
             Musician musician = playerNeighbourhood.get(i);
             if (musician instanceof Player) {
-                Player temp = (Player) musician; // Safe to cast now
+                Player temp = (Player) musician;
                 if (temp.getCanPlayFurElise()) {
                     bus.add(musician);
                     System.out.println(musician.getName() + " has made it onto the bus!");
@@ -81,7 +82,7 @@ public class Tester {
         for (int i = 0; i < bandNeighbourhood.size(); i++) {
             Musician musician = bandNeighbourhood.get(i);
             if (musician instanceof Band) {
-                Band temp = (Band) musician; // Safe to cast now
+                Band temp = (Band) musician;
                 if (temp.getStatus()) {
                     bus.add(musician);
                     System.out.println(musician.getName() + " has made it onto the bus!");
@@ -116,7 +117,7 @@ public class Tester {
         for (int i = 0; i < singerNeighbourhood.size(); i++) {
             Musician musician = singerNeighbourhood.get(i);
             if (musician instanceof Singer) {
-                Singer temp = (Singer) musician; // Safe to cast now
+                Singer temp = (Singer) musician;
                 if (temp.getStatus()) {
                     bus.add(musician);
                     System.out.println(musician.getName() + " has made it onto the bus!");
@@ -136,6 +137,7 @@ public class Tester {
         Musician brahms = new Composer("Johannes Brahms", true, "Third Symphony");
         Musician hansZimmer = new Composer("Hans Zimmer", true, "Dune Soundtrack");
         Musician bach = new Composer("Bach", true, "Mass in B minor");
+
         for (int i = 0; i < composerNeighbourhood.size(); i++) {
             composerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
         }
@@ -143,7 +145,7 @@ public class Tester {
         for (int i = 0; i < composerNeighbourhood.size(); i++) {
             Musician musician = composerNeighbourhood.get(i);
             if (musician instanceof Composer) {
-                Composer temp = (Composer) musician; // Safe to cast now
+                Composer temp = (Composer) musician;
                 if (!temp.getLockedStatus()) {
                     bus.add(musician);
                     System.out.println(musician.getName() + " has made it onto the bus!");
@@ -160,9 +162,36 @@ public class Tester {
         System.out.println("Musicians are boarding the bus and finding their seats.");
     }
 
+    public static void printTheBus() {
+       for (int i = 0; i < bus.size(); i++) {
+           System.out.println("" + i+1 + ".  " + bus.get(i));
+       }
+    }
+
     public static void onTheBusCompetition() {
-        // Describe the event where Steven drives the bus onto a race track, leading to a shuffle.
-        System.out.println("A detour onto a race track leads to an unexpected shuffle among the musicians.");
+        System.out.println("The musicians enter onto the bus and settle into their seats, oblivious to the hijacking that has occurred before them.");
+        System.out.println("Despite their loud entries, the musicians now begin pondering which five should progress to the final tournament.");
+        System.out.println("However, the bus begins shaking violently, and loud whirring sounds begin appearing all around the bus.");
+        System.out.println("Everybody looks outside the bus to see what happened.");
+        System.out.println("it turns out the bus is now in the middle of a Formula 1 race course!");
+        System.out.println();
+
+        System.out.println("In the front, Steven starts screaming");
+        if (bus.get(0) instanceof Player) {
+            Player temp = (Player) bus.get(0);
+            temp.yellForHelp();
+        }
+            System.out.println();
+
+        System.out.println("Somehow, Steven navigates the bus to the side of the road, but the sharp turns have caused disarray among the musicians, who find themsleves in completely different seats from before");
+        Collections.shuffle(bus);
+        System.out.println("The new seating arrangement is: \n");
+        printTheBus();
+        System.out.println("Musicians from different neighbourhoods responded to the emergency in different way");
+        for (int i = 0; i < bus.size(); i++) {
+            bus.get(i).reactToEmergency();
+        }
+
     }
 
     public static void decideWhoProceeds() {

@@ -23,7 +23,7 @@ public class Singer extends Musician {
         } else if (isIncarcerated) {
             System.out.println(getName() + " is in jail and cannot react.");
         } else {
-            System.out.println(getName() + " sings a calming melody.");
+            System.out.println("As " + getName() + ", AAAAAAAAAAAAAAHHHHHHHHHHHHHH WHAT IS HAPPENING. Huh, this is the perfect title for my next song.");
         }
     }
 

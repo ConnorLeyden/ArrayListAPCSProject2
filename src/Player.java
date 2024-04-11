@@ -29,7 +29,7 @@ public class Player extends Musician {
     }
     @Override
     public void reactToEmergency() {
-        System.out.println(getName() + " reacts to the emergency by " + (canPlayFurElise ? "calmly playing Fur Elise." : "panicking."));
+        System.out.println("As " + getName() + ", I need to make sure my instrument is unharmed" + (canPlayFurElise ? ". I will now start playing Fur Elise." : "."));
     }
 
 
@@ -45,5 +45,10 @@ public class Player extends Musician {
     @Override
     public void vote(ArrayList<Musician> musicians) {
         // Implementation of vote method
+    }
+
+    public void yellForHelp() {
+        System.out.println("AAAAAAAAAAAAAAAAAAAA!!!!!!!!");
+        System.out.println("I can't even drive, what do I do!");
     }
 }

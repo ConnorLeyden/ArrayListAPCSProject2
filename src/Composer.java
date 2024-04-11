@@ -42,7 +42,7 @@ public class Composer extends Musician {
         if (isLockedInHouse) {
             System.out.println(getName() + " is locked in and cannot react to the emergency.");
         } else {
-            System.out.println(getName() + " starts composing a 'race' themed symphony.");
+            System.out.println("As " + getName() + ", I myself believe this inexplicable occurrance the opportune moment to compose a dramatic symphony.");
         }
     }
 
