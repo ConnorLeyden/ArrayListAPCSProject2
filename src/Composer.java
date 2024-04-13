@@ -34,7 +34,7 @@ public class Composer extends Musician {
 
 
 
-    public boolean getLockedStatus() {
+    public boolean isEligibleForBus() {
         return this.isLockedInHouse;
     }
     @Override

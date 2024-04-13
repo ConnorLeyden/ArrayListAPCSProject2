@@ -15,7 +15,7 @@ public class Player extends Musician {
         return "Hi! My name is " + getName() + " and I play the " + getInstrument() + ".";
     }
 
-    public boolean getCanPlayFurElise() {
+    public boolean isEligibleForBus() {
         return this.canPlayFurElise;
     }
     @Override

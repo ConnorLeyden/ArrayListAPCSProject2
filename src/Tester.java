@@ -18,6 +18,36 @@ public class Tester {
         departure();
     }
 
+    private boolean addMusicianIfVerified(Musician newMusician) {
+        // Verification check
+        for (Musician musician : bus) {
+            if (musician.equals(newMusician)) {
+                System.out.println(newMusician.getName() + " is already on the bus.");
+                return false;
+            }
+        }
+        bus.add(newMusician);
+        System.out.println(newMusician.getName() + " has been added to the bus.");
+        return true;
+    }
+
+    private static ArrayList<Musician> evaluateAndAddMusiciansToBus(ArrayList<Musician> neighbourhood) {
+        for (Musician musician : neighbourhood) {
+            musician.chooseNeighbourhoodCompetitor();
+        }
+
+        for (int i = 0; i < neighbourhood.size(); i++) {
+            if (neighbourhood.get(i).isEligibleForBus()) {
+                System.out.println(neighbourhood.get(i).getName() + " has made it onto the bus!");
+            } else {
+                System.out.println(neighbourhood.get(i).getName() + " didn't make it onto the bus.");
+                neighbourhood.remove(i);
+                i--;
+            }
+        }
+        return neighbourhood;
+    }
+
     public static void introduceNarrative() {
         System.out.println("Once upon a time in a land far far away...");
         System.out.println("There were several neighborhoods in which the musicians live: the player, composer, singer, and band neighborhoods.");
@@ -44,30 +74,8 @@ public class Tester {
         playerNeighbourhood.add(yoYoMa);
         playerNeighbourhood.add(louisArmstrong);
 
-        for (int i = 0; i < playerNeighbourhood.size(); i++) {
-            playerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
-        }
-
-        for (int i = 0; i < playerNeighbourhood.size(); i++) {
-            Musician musician = playerNeighbourhood.get(i);
-            if (musician instanceof Player) {
-                Player temp = (Player) musician;
-                if (temp.getCanPlayFurElise()) {
-                    bus.add(musician);
-                    System.out.println(musician.getName() + " has made it onto the bus!");
-                } else {
-                    System.out.println(musician.getName() + " didn't make it onto the bus.");
-                }
-            }
-        }
+        evaluateAndAddMusiciansToBus(playerNeighbourhood);
     }
-
-
-
-//    IMPORTANT IMPORTANT ==================
-//    Must VERIFY Names using .Equals
-//    IMPORTANT IMPORTANT ==================
-
 
     public static void decideContestantsBand() {
         System.out.println("Next, the band neighbourhood must decide its two top contestants");
@@ -82,22 +90,7 @@ public class Tester {
         bandNeighbourhood.add(rollingStones);
 
 
-        for (int i = 0; i < bandNeighbourhood.size(); i++) {
-            bandNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
-        }
-
-        for (int i = 0; i < bandNeighbourhood.size(); i++) {
-            Musician musician = bandNeighbourhood.get(i);
-            if (musician instanceof Band) {
-                Band temp = (Band) musician;
-                if (temp.getStatus()) {
-                    bus.add(musician);
-                    System.out.println(musician.getName() + " has made it onto the bus!");
-                } else {
-                    System.out.println(musician.getName() + " didn't make it onto the bus.");
-                }
-            }
-        }
+        evaluateAndAddMusiciansToBus(bandNeighbourhood);
 
 
     }
@@ -117,22 +110,7 @@ public class Tester {
         singerNeighbourhood.add(adele);
         singerNeighbourhood.add(michaelJackson);
 
-        for (int i = 0; i < singerNeighbourhood.size(); i++) {
-            singerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
-        }
-
-        for (int i = 0; i < singerNeighbourhood.size(); i++) {
-            Musician musician = singerNeighbourhood.get(i);
-            if (musician instanceof Singer) {
-                Singer temp = (Singer) musician;
-                if (temp.getStatus()) {
-                    bus.add(musician);
-                    System.out.println(musician.getName() + " has made it onto the bus!");
-                } else {
-                    System.out.println(musician.getName() + " didn't make it onto the bus.");
-                }
-            }
-        }
+        evaluateAndAddMusiciansToBus(singerNeighbourhood);
     }
 
     public static void decideContestantsComposer() {
@@ -145,22 +123,13 @@ public class Tester {
         Musician hansZimmer = new Composer("Hans Zimmer", true, "Dune Soundtrack");
         Musician bach = new Composer("Bach", true, "Mass in B minor");
 
-        for (int i = 0; i < composerNeighbourhood.size(); i++) {
-            composerNeighbourhood.get(i).chooseNeighbourhoodCompetitor();
-        }
+        composerNeighbourhood.add(mozart);
+        composerNeighbourhood.add(beethoven);
+        composerNeighbourhood.add(brahms);
+        composerNeighbourhood.add(hansZimmer);
+        composerNeighbourhood.add(bach);
 
-        for (int i = 0; i < composerNeighbourhood.size(); i++) {
-            Musician musician = composerNeighbourhood.get(i);
-            if (musician instanceof Composer) {
-                Composer temp = (Composer) musician;
-                if (!temp.getLockedStatus()) {
-                    bus.add(musician);
-                    System.out.println(musician.getName() + " has made it onto the bus!");
-                } else {
-                    System.out.println(musician.getName() + " didn't make it onto the bus.");
-                }
-            }
-        }
+        evaluateAndAddMusiciansToBus(composerNeighbourhood);
 
     }
 
@@ -198,7 +167,6 @@ public class Tester {
         for (int i = 0; i < bus.size(); i++) {
             bus.get(i).reactToEmergency();
         }
-
     }
 
     public static void decideWhoProceeds() {

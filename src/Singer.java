@@ -27,9 +27,10 @@ public class Singer extends Musician {
         }
     }
 
-    public boolean getStatus() {
+    public boolean isEligibleForBus() {
         return !(this.isIncarcerated || this.isKidnapped);
     }
+
     public void chooseNeighbourhoodCompetitor() {
         System.out.println(this);
         if (this.isKidnapped) {

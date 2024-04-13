@@ -7,6 +7,8 @@ public class Musician {
     private String instrument;
     private boolean isOffBus = false;
 
+    private boolean isEligibleForBus = false;
+
     public Musician(String name, String instrument) {
         this.name = name;
         this.instrument = instrument;
@@ -26,9 +28,12 @@ public class Musician {
         this.isOffBus = true;
     }
 
-    // Since we can't have abstract methods, provide a default implementation.
     public void reactToEmergency() {
         System.out.println(name + " does not know how to react to the emergency!");
+    }
+
+    public boolean isEligibleForBus() {
+        return isEligibleForBus;
     }
 
     // Provide a default implementation for compete.
@@ -36,7 +41,6 @@ public class Musician {
         System.out.println(name + " competes in their own unique way.");
     }
 
-    // Provide a default implementation for vote.
     public void vote(ArrayList<Musician> musicians) {
         System.out.println(name + " has a unique way of voting.");
     }

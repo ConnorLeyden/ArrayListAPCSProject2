@@ -23,7 +23,7 @@ public class Band extends Musician {
         }
     }
 
-    public boolean getStatus() {
+    public boolean isEligibleForBus() {
         return this.isInAlliance;
     }
     @Override
