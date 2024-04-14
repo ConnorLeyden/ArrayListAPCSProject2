@@ -4,12 +4,12 @@
 
 import java.util.ArrayList;
 public class Composer extends Musician {
-    private boolean isLockedInHouse;
+    private boolean isLockedNotInHouse;
     private String bestComposition;
 
     public Composer(String name, boolean isLockedInHouse, String bestComposition) {
-        super(name);
-        this.isLockedInHouse = isLockedInHouse;
+        super(name, "sheet music");
+        this.isLockedNotInHouse = isLockedInHouse;
         this.bestComposition = bestComposition;
     }
 
@@ -21,7 +21,7 @@ public class Composer extends Musician {
     @Override
     public void chooseNeighbourhoodCompetitor() {
         System.out.println(this);
-        if (this.isLockedInHouse) {
+        if (this.isLockedNotInHouse) {
             if (getName().equals("Mozart")) {
                 System.out.println("I have helped lock the other contestants in the house with Beethoven!");
             } else {
@@ -35,20 +35,21 @@ public class Composer extends Musician {
 
 
     public boolean isEligibleForBus() {
-        return this.isLockedInHouse;
+        return this.isLockedNotInHouse;
     }
     @Override
     public void reactToEmergency() {
-        if (isLockedInHouse) {
+        if (!isLockedNotInHouse) {
             System.out.println(getName() + " is locked in and cannot react to the emergency.");
         } else {
-            System.out.println("As " + getName() + ", I myself believe this inexplicable occurrance the opportune moment to compose a dramatic symphony.");
+            System.out.println(getName() + ": I myself believe this inexplicable occurrence is the" +
+                    " opportune moment to compose a dramatic symphony.");
         }
     }
 
     @Override
     public void compete() {
-        if (!isLockedInHouse) {
+        if (!isLockedNotInHouse) {
             System.out.println(getName() + " competes with a newly composed piece.");
         } else {
             System.out.println(getName() + " cannot compete because they are locked in.");
@@ -56,14 +57,10 @@ public class Composer extends Musician {
     }
 
     @Override
-    public void vote(ArrayList<Musician> musicians) {
-        // Implementation of vote method for Composer
-    }
-
-    @Override
 
     public void exitBus() {
         super.exitBus();
-        System.out.println("I " + getName() + " will compose the greatest symphony known to man and win the tournament!");
+        System.out.println("I " + getName() +
+                " will compose the greatest symphony known to man and win the tournament!");
     }
 }

@@ -23,7 +23,7 @@ public class Singer extends Musician {
         } else if (isIncarcerated) {
             System.out.println(getName() + " is in jail and cannot react.");
         } else {
-            System.out.println("As " + getName() + ", AAAAAAAAAAAAAAHHHHHHHHHHHHHH WHAT IS HAPPENING. Huh, this is the perfect title for my next song.");
+            System.out.println(getName() + ": AAAAAAAAAAAAAAHHHHHHHHHHHHHH WHAT IS HAPPENING. Huh, this is the perfect title for my next song.");
         }
     }
 
@@ -53,11 +53,6 @@ public class Singer extends Musician {
         } else {
             System.out.println(getName() + " cannot compete due to their situation.");
         }
-    }
-
-    @Override
-    public void vote(ArrayList<Musician> musicians) {
-        // Implementation of vote method for Singer
     }
 
     public String toString() {

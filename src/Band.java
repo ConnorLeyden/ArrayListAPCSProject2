@@ -17,7 +17,7 @@ public class Band extends Musician {
     public void chooseNeighbourhoodCompetitor() {
         System.out.println(this);
         if (this.isInAlliance) {
-            System.out.println("I have entered into an alliance to crush the rolling stones for good!");
+            System.out.println("I have entered into an alliance to crush the Rolling Stones for good!");
         } else {
             System.out.println("This is an outrage! I am being teamed up on and blocked from getting on the bus!");
         }
@@ -29,7 +29,7 @@ public class Band extends Musician {
     @Override
     public void reactToEmergency() {
         if (isInAlliance) {
-            System.out.println("As the " + getName() + ", I need to make sure all my fellow band members are alright.");
+            System.out.println(getName() + ": I need to make sure all my fellow band members are alright.");
         } else {
             System.out.println(getName() + " is on their own, trying to figure out a solo act.");
         }
@@ -45,11 +45,6 @@ public class Band extends Musician {
     }
 
     @Override
-    public void vote(ArrayList<Musician> musicians) {
-        // Implementation of vote method for Band
-    }
-
-    @Override
     public String toString() {
         return "My name is " + getName() + " and my most popular song is " + this.bestSong + ".";
     }
@@ -58,6 +53,6 @@ public class Band extends Musician {
 
     public void exitBus() {
         super.exitBus();
-        System.out.println("The " + getName() + "will rally the old support to victory!");
+        System.out.println(getName() + " will rally our fans to victory!");
     }
 }
